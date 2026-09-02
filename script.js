@@ -309,3 +309,4 @@ function addResult() {
 
   alert("✅ Result added and table updated!");
       }
+function enterFixtureResult(index) {
