@@ -9,6 +9,7 @@ const teamList = document.getElementById("teamList");
 const registrationMessage =
   document.getElementById("registrationMessage");
 
+alert("Registration system is ready!");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
