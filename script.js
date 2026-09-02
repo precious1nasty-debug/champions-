@@ -246,3 +246,55 @@ function reopenRegistration() {
 
   alert("🔓 Registration has been reopened!");
 }
+function addResult() {
+  const home = prompt("Enter Home Team:");
+  const away = prompt("Enter Away Team:");
+
+  const homeScore = Number(prompt("Enter Home Score:"));
+  const awayScore = Number(prompt("Enter Away Score:"));
+
+  if (
+    !home ||
+    !away ||
+    isNaN(homeScore) ||
+    isNaN(awayScore)
+  ) {
+    alert("⚠️ Please enter all details correctly.");
+    return;
+  }
+
+  const homeTeam = teams.find(function (team) {
+    return team.teamName === home;
+  });
+
+  const awayTeam = teams.find(function (team) {
+    return team.teamName === away;
+  });
+
+  if (!homeTeam || !awayTeam) {
+    alert("❌ Team not found.");
+    return;
+  }
+
+  homeTeam.played++;
+  awayTeam.played++;
+
+  if (homeScore > awayScore) {
+    homeTeam.wins++;
+    homeTeam.points += 3;
+    awayTeam.losses++;
+  } else if (homeScore < awayScore) {
+    awayTeam.wins++;
+    awayTeam.points += 3;
+    homeTeam.losses++;
+  } else {
+    homeTeam.draws++;
+    awayTeam.draws++;
+    homeTeam.points++;
+    awayTeam.points++;
+  }
+
+  displayTable();
+
+  alert("✅ Result added and table updated!");
+      }
