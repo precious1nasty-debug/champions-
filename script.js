@@ -308,7 +308,7 @@ function addResult() {
   displayTable();
 
   alert("✅ Result added and table updated!");
-      }
+  }
 function enterFixtureResult(index) {
   const fixture = fixtures[index];
 
