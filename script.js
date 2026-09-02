@@ -74,7 +74,11 @@ function displayTable() {
 
   table.innerHTML = "";
 
-  teams.forEach(function (team, index) {
+  teams.sort(function (a, b) {
+  return b.points - a.points;
+});
+
+teams.forEach(function (team, index) {
     table.innerHTML += `
       <tr>
         <td>${index + 1}</td>
