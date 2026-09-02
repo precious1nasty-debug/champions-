@@ -122,6 +122,9 @@ function adminLogin() {
       <button onclick="addFixture()">
         📅 Add Fixture
       </button>
+      <button onclick="startLeague()">
+  🏆 Start League
+</button>
 
       <button onclick="clearTeams()">
         🗑️ Clear Teams
