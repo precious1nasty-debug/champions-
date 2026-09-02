@@ -126,6 +126,10 @@ function adminLogin() {
   🏆 Start League
 </button>
 
+<button onclick="reopenRegistration()">
+  🔓 Reopen Registration
+</button>
+
       <button onclick="clearTeams()">
         🗑️ Clear Teams
       </button>
