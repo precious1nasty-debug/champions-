@@ -112,6 +112,9 @@ function adminLogin() {
       <button onclick="addFixture()">
         📅 Add Fixture
       </button>
+      <button onclick="addResult()">
+  🏆 Enter Match Result
+</button>
       <button onclick="startLeague()">
   🏆 Start League
 </button>
