@@ -190,3 +190,36 @@ function clearTeams() {
     alert("🗑️ All teams have been removed.");
   }
 }
+
+function startLeague() {
+  if (leagueStarted) {
+    alert("⚠️ The league has already started!");
+    return;
+  }
+
+  if (teams.length === 0) {
+    alert("❌ Register at least one team first.");
+    return;
+  }
+
+  const confirmStart = confirm(
+    "🏆 Are you sure you want to start the league?\n\nRegistration will be permanently closed."
+  );
+
+  if (!confirmStart) {
+    return;
+  }
+
+  leagueStarted = true;
+
+  alert(
+    "🏆 LEAGUE STARTED!\n\n🔒 Registration is now CLOSED."
+  );
+
+  form.querySelectorAll("input, button").forEach(function (element) {
+    element.disabled = true;
+  });
+
+  registrationMessage.textContent =
+    "🔒 Registration CLOSED — The league has started.";
+}
