@@ -227,3 +227,29 @@ function startLeague() {
   registrationMessage.textContent =
     "🔒 Registration CLOSED — The league has started.";
 }
+
+function reopenRegistration() {
+  if (!leagueStarted) {
+    alert("ℹ️ Registration is already open.");
+    return;
+  }
+
+  const confirmReopen = confirm(
+    "🔓 Reopen registration?\n\nNew teams will be allowed to register again."
+  );
+
+  if (!confirmReopen) {
+    return;
+  }
+
+  leagueStarted = false;
+
+  form.querySelectorAll("input, button").forEach(function (element) {
+    element.disabled = false;
+  });
+
+  registrationMessage.textContent =
+    "🟢 Registration is OPEN again.";
+
+  alert("🔓 Registration has been reopened!");
+}
