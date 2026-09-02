@@ -169,15 +169,22 @@ function displayFixtures() {
 
   fixtureList.innerHTML = "";
 
-  fixtures.forEach(function (fixture) {
-    fixtureList.innerHTML += `
-      <div class="fixture">
-        <span class="time">${fixture.time}</span>
-        <span class="teams">
-          ${fixture.home} 🆚 ${fixture.away}
-        </span>
-      </div>
+  fixtures.forEach(function (fixture, index) {
+    const match = document.createElement("div");
+
+    match.className = "fixture";
+
+    match.innerHTML = `
+      <span class="time">${fixture.time}</span>
+      <span class="teams">
+        ${fixture.home} 🆚 ${fixture.away}
+      </span>
+      <button onclick="enterFixtureResult(${index})">
+        🏆 Enter Result
+      </button>
     `;
+
+    fixtureList.appendChild(match);
   });
 }
 
