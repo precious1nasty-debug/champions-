@@ -310,3 +310,63 @@ function addResult() {
   alert("✅ Result added and table updated!");
       }
 function enterFixtureResult(index) {
+  const fixture = fixtures[index];
+
+  const homeScore = Number(
+    prompt(fixture.home + " score:")
+  );
+
+  const awayScore = Number(
+    prompt(fixture.away + " score:")
+  );
+
+  if (
+    isNaN(homeScore) ||
+    isNaN(awayScore) ||
+    homeScore < 0 ||
+    awayScore < 0
+  ) {
+    alert("⚠️ Please enter valid scores.");
+    return;
+  }
+
+  const homeTeam = teams.find(function (team) {
+    return team.teamName === fixture.home;
+  });
+
+  const awayTeam = teams.find(function (team) {
+    return team.teamName === fixture.away;
+  });
+
+  if (!homeTeam || !awayTeam) {
+    alert("❌ One or both teams were not found.");
+    return;
+  }
+
+  homeTeam.played++;
+  awayTeam.played++;
+
+  if (homeScore > awayScore) {
+    homeTeam.wins++;
+    homeTeam.points += 3;
+    awayTeam.losses++;
+  } else if (homeScore < awayScore) {
+    awayTeam.wins++;
+    awayTeam.points += 3;
+    homeTeam.losses++;
+  } else {
+    homeTeam.draws++;
+    awayTeam.draws++;
+    homeTeam.points++;
+    awayTeam.points++;
+  }
+
+  fixture.homeScore = homeScore;
+  fixture.awayScore = awayScore;
+  fixture.completed = true;
+
+  displayFixtures();
+  displayTable();
+
+  alert("✅ Match result saved!");
+}
