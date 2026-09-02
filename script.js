@@ -10,15 +10,13 @@ const registrationMessage =
   document.getElementById("registrationMessage");
 
 form.addEventListener("submit", function (e) {
-  if (leagueStarted) {
-    e.preventDefault();
+  e.preventDefault();
 
+  if (leagueStarted === true) {
     registrationMessage.textContent =
       "🔒 Registration is closed. The league has already started.";
-
     return;
   }
-  e.preventDefault();
 
   const teamName =
     document.getElementById("teamName").value.trim();
@@ -26,19 +24,15 @@ form.addEventListener("submit", function (e) {
   const playerName =
     document.getElementById("playerName").value.trim();
 
-  const phone =
-    document.getElementById("phone").value.trim();
-
-  if (!teamName || !playerName || !phone) {
+  if (teamName === "" || playerName === "") {
     registrationMessage.textContent =
-      "Please fill in all fields.";
+      "⚠️ Please fill in all fields.";
     return;
   }
 
   teams.push({
     teamName: teamName,
     playerName: playerName,
-    phone: phone,
     played: 0,
     wins: 0,
     draws: 0,
