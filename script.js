@@ -1,4 +1,4 @@
-let leagueStart = false;
+let leagueStarted = false;
 
 const teams = [];
 
