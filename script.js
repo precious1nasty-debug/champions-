@@ -10,6 +10,14 @@ const registrationMessage =
   document.getElementById("registrationMessage");
 
 form.addEventListener("submit", function (e) {
+  if (leagueStarted) {
+    e.preventDefault();
+
+    registrationMessage.textContent =
+      "🔒 Registration is closed. The league has already started.";
+
+    return;
+  }
   e.preventDefault();
 
   const teamName =
