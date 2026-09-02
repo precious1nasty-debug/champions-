@@ -9,21 +9,11 @@ const teamList = document.getElementById("teamList");
 const registrationMessage =
   document.getElementById("registrationMessage");
 
-alert("Registration system is ready!");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (leagueStarted === true) {
-    registrationMessage.textContent =
-      "🔒 Registration is closed. The league has already started.";
-    return;
-  }
-
-  const teamName =
-    document.getElementById("teamName").value.trim();
-
-  const playerName =
-    document.getElementById("playerName").value.trim();
+  const teamName = document.getElementById("teamName").value.trim();
+  const playerName = document.getElementById("playerName").value.trim();
 
   if (teamName === "" || playerName === "") {
     registrationMessage.textContent =
