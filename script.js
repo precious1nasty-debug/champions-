@@ -438,12 +438,19 @@ function enterFixtureResult(index) {
   }
 
   homeTeam.played++;
-  awayTeam.played++;
-  homeTeam.goalsFor += homeScore;
-homeTeam.goalsAgainst += awayScore;
+awayTeam.played++;
 
-awayTeam.goalsFor += awayScore;
-awayTeam.goalsAgainst += homeScore;
+homeTeam.goalsFor =
+  (homeTeam.goalsFor || 0) + homeScore;
+
+homeTeam.goalsAgainst =
+  (homeTeam.goalsAgainst || 0) + awayScore;
+
+awayTeam.goalsFor =
+  (awayTeam.goalsFor || 0) + awayScore;
+
+awayTeam.goalsAgainst =
+  (awayTeam.goalsAgainst || 0) + homeScore;
 
   if (homeScore > awayScore) {
     homeTeam.wins++;
