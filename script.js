@@ -418,6 +418,11 @@ function enterFixtureResult(index) {
 
   homeTeam.played++;
   awayTeam.played++;
+  homeTeam.goalsFor += homeScore;
+homeTeam.goalsAgainst += awayScore;
+
+awayTeam.goalsFor += awayScore;
+awayTeam.goalsAgainst += homeScore;
 
   if (homeScore > awayScore) {
     homeTeam.wins++;
