@@ -425,6 +425,7 @@ function reopenRegistration() {
   }
 
   leagueStarted = false;
+  saveTeamsToCloud();
 
   form.querySelectorAll("input, button").forEach(function (element) {
     element.disabled = false;
