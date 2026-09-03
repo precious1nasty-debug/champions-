@@ -25,7 +25,10 @@ async function saveTeamsToCloud() {
     await setDoc(
       doc(db, "competition", "main"),
       {
-        teams: teams
+  teams: teams,
+  fixtures: fixtures,
+  leagueStarted: leagueStarted,
+  seasonStartDate: seasonStartDate
       }
     );
 
