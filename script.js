@@ -191,11 +191,30 @@ function displayFixtures() {
     if (fixture.day !== currentDay) {
       currentDay = fixture.day;
 
-      fixtureList.innerHTML += `
-        <h3 class="match-day">
-          📅 Day ${fixture.day}
-        </h3>
-      `;
+      let dateText = "";
+
+if (leagueStarted && seasonStartDate) {
+  const fixtureDate = new Date(seasonStartDate);
+
+  fixtureDate.setDate(
+    fixtureDate.getDate() + fixture.day - 1
+  );
+
+  dateText = " — " + fixtureDate.toLocaleDateString(
+    "en-GB",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }
+  );
+}
+
+fixtureList.innerHTML += `
+  <h3 class="match-day">
+    📅 Day ${fixture.day}${dateText}
+  </h3>
+`;
     }
 
     const match = document.createElement("div");
