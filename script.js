@@ -562,6 +562,7 @@ awayTeam.goalsAgainst =
 
   displayFixtures();
   displayTable();
+  saveTeamsTocloud();
 
   alert("✅ Match result saved!");
 }
