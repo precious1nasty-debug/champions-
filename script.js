@@ -738,3 +738,10 @@ window.manageTeams = function() {
 
 setTimeout(loadTeamsFromCloud, 1000);
 console.log("🔥 Cloud loading started");
+window.showRegister = showRegister;
+window.adminLogin = adminLogin;
+window.generateFixtures = generateFixtures;
+window.startLeague = startLeague;
+window.reopenRegistration = reopenRegistration;
+window.clearTeams = clearTeams;
+window.enterFixtureResult = enterFixtureResult;
