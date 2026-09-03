@@ -29,7 +29,7 @@ async function saveTeamsToCloud() {
       }
     );
 
-    console.log("✅ Teams saved to cloud.");
+    alert("✅ Firebase save completed!");
   } catch (error) {
     console.error("❌ Cloud save failed:", error);
   }
