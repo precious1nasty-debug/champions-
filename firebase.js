@@ -15,3 +15,4 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 window.db = db;
+window.firebaseReady = true;
