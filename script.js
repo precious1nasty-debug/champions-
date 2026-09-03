@@ -735,3 +735,5 @@ window.manageTeams = function() {
     );
   }
 }
+
+loadTeamsFromCloud();
