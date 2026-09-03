@@ -519,3 +519,105 @@ function generateFixtures() {
     " matches created."
   );
 }
+
+function manageTeams() {
+  if (leagueStarted) {
+    alert("🔒 The league has already started. Teams cannot be edited.");
+    return;
+  }
+
+  if (teams.length === 0) {
+    alert("⚠️ No teams registered yet.");
+    return;
+  }
+
+  let teamListText = "👥 REGISTERED TEAMS\n\n";
+
+  teams.forEach(function (team, index) {
+    teamListText +=
+      (index + 1) + ". " +
+      team.teamName +
+      " — " +
+      team.playerName +
+      "\n";
+  });
+
+  const choice = prompt(
+    teamListText +
+    "\n\nType the team number to edit/remove, or Cancel to exit."
+  );
+
+  if (choice === null) {
+    return;
+  }
+
+  const teamIndex = Number(choice) - 1;
+
+  if (
+    isNaN(teamIndex) ||
+    teamIndex < 0 ||
+    teamIndex >= teams.length
+  ) {
+    alert("❌ Invalid team number.");
+    return;
+  }
+
+  const action = prompt(
+    "What do you want to do?\n\n" +
+    "1 = Edit Team\n" +
+    "2 = Remove Team"
+  );
+
+  if (action === "1") {
+    const newTeamName = prompt(
+      "Enter new team name:",
+      teams[teamIndex].teamName
+    );
+
+    const newPlayerName = prompt(
+      "Enter new player name:",
+      teams[teamIndex].playerName
+    );
+
+    if (!newTeamName || !newPlayerName) {
+      alert("⚠️ Team details cannot be empty.");
+      return;
+    }
+
+    teams[teamIndex].teamName =
+      newTeamName.trim();
+
+    teams[teamIndex].playerName =
+      newPlayerName.trim();
+
+    displayTeams();
+    displayTable();
+
+    alert("✅ Team updated successfully!");
+
+  } else if (action === "2") {
+
+    const confirmRemove = confirm(
+      "🗑️ Remove " +
+      teams[teamIndex].teamName +
+      "?"
+    );
+
+    if (!confirmRemove) {
+      return;
+    }
+
+    teams.splice(teamIndex, 1);
+
+    fixtures.length = 0;
+
+    displayTeams();
+    displayTable();
+    displayFixtures();
+
+    alert(
+      "🗑️ Team removed!\n\n" +
+      "Generate the fixtures again before starting the league."
+    );
+  }
+                }
