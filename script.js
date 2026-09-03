@@ -111,15 +111,14 @@ function adminLogin() {
     document.getElementById("admin").innerHTML = `
       <h2>🔐 Admin Dashboard</h2>
 
-      <p>Welcome, Admin!</p>
-      <div class="season-setup">
+<p>Welcome, Admin!</p>
+
+<div class="season-setup">
   <h3>⚙️ Season Setup</h3>
 
   <p>Registered Teams: <strong>${teams.length}</strong></p>
 
-  <label>
-    Match Format:
-  </label>
+  <label>Match Format:</label>
 
   <select id="legFormat">
     <option value="1">1 Leg</option>
@@ -131,26 +130,19 @@ function adminLogin() {
   <button onclick="generateFixtures()">
     📅 Generate Fixtures
   </button>
+
+  <button onclick="startLeague()">
+    🏆 Start League
+  </button>
+
+  <button onclick="reopenRegistration()">
+    🔓 Reopen Registration
+  </button>
+
+  <button onclick="clearTeams()">
+    🗑️ Clear Teams
+  </button>
 </div>
-
-      <button onclick="addFixture()">
-        📅 Add Fixture
-      </button>
-      <button onclick="addResult()">
-  🏆 Enter Match Result
-</button>
-      <button onclick="startLeague()">
-  🏆 Start League
-</button>
-
-<button onclick="reopenRegistration()">
-  🔓 Reopen Registration
-</button>
-
-      <button onclick="clearTeams()">
-        🗑️ Clear Teams
-      </button>
-    `;
   } else {
     alert("❌ Wrong password!");
   }
