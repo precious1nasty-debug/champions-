@@ -636,6 +636,7 @@ function generateFixtures() {
   }
 
   displayFixtures();
+  saveTeamsToCloud();
 
   alert(
     "✅ Fixtures generated!\n\n" +
