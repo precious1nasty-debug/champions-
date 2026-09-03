@@ -111,38 +111,40 @@ function adminLogin() {
     document.getElementById("admin").innerHTML = `
       <h2>🔐 Admin Dashboard</h2>
 
-<p>Welcome, Admin!</p>
+      <p>Welcome, Admin!</p>
 
-<div class="season-setup">
-  <h3>⚙️ Season Setup</h3>
+      <div class="season-setup">
+        <h3>⚙️ Season Setup</h3>
 
-  <p>Registered Teams: <strong>${teams.length}</strong></p>
+        <p>Registered Teams: <strong>${teams.length}</strong></p>
 
-  <label>Match Format:</label>
+        <label>Match Format:</label>
 
-  <select id="legFormat">
-    <option value="1">1 Leg</option>
-    <option value="2">2 Legs</option>
-  </select>
+        <select id="legFormat">
+          <option value="1">1 Leg</option>
+          <option value="2">2 Legs</option>
+        </select>
 
-  <br><br>
+        <br><br>
 
-  <button onclick="generateFixtures()">
-    📅 Generate Fixtures
-  </button>
+        <button onclick="generateFixtures()">
+          📅 Generate Fixtures
+        </button>
 
-  <button onclick="startLeague()">
-    🏆 Start League
-  </button>
+        <button onclick="startLeague()">
+          🏆 Start League
+        </button>
 
-  <button onclick="reopenRegistration()">
-    🔓 Reopen Registration
-  </button>
+        <button onclick="reopenRegistration()">
+          🔓 Reopen Registration
+        </button>
 
-  <button onclick="clearTeams()">
-    🗑️ Clear Teams
-  </button>
-</div>
+        <button onclick="clearTeams()">
+          🗑️ Clear Teams
+        </button>
+      </div>
+    `;
+
   } else {
     alert("❌ Wrong password!");
   }
