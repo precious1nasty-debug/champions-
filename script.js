@@ -77,6 +77,7 @@ if (teamExists) {
 
   displayTeams();
   displayTable();
+  saveTeamsToCloud();
 });
 
 function displayTeams() {
