@@ -1,4 +1,5 @@
 let leagueStarted = false;
+let seasonStartDate = null;
 
 const teams = [];
 
