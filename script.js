@@ -737,3 +737,4 @@ window.manageTeams = function() {
 }
 
 setTimeout(loadTeamsFromCloud, 1000);
+console.log("🔥 Cloud loading started");
