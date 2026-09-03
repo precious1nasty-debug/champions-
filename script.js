@@ -18,7 +18,21 @@ async function saveTeamsToCloud() {
     return;
   }
 
-  console.log("Teams ready to save to Firebase.");
+  try {
+    const { doc, setDoc } =
+      await import("https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js");
+
+    await setDoc(
+      doc(db, "competition", "main"),
+      {
+        teams: teams
+      }
+    );
+
+    console.log("✅ Teams saved to cloud.");
+  } catch (error) {
+    console.error("❌ Cloud save failed:", error);
+  }
 }
 
 form.addEventListener("submit", function (e) {
