@@ -35,6 +35,39 @@ async function saveTeamsToCloud() {
   }
 }
 
+async function loadTeamsFromCloud() {
+  const db = window.db;
+
+  if (!db) {
+    console.error("Firebase database not connected.");
+    return;
+  }
+
+  try {
+    const { doc, getDoc } =
+      await import("https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js");
+
+    const snapshot = await getDoc(
+      doc(db, "competition", "main")
+    );
+
+    if (snapshot.exists()) {
+      const data = snapshot.data();
+
+      teams.length = 0;
+
+      teams.push(...(data.teams || []));
+
+      displayTeams();
+      displayTable();
+
+      console.log("✅ Teams loaded from cloud.");
+    }
+  } catch (error) {
+    console.error("❌ Cloud load failed:", error);
+  }
+}
+
 form.addEventListener("submit", function (e) {
   if (leagueStarted === true) {
   registrationMessage.textContent =
