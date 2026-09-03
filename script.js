@@ -620,4 +620,4 @@ function manageTeams() {
       "Generate the fixtures again before starting the league."
     );
   }
-                }
+}
