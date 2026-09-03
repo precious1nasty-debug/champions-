@@ -370,6 +370,7 @@ function clearTeams() {
 
     displayTeams();
     displayTable();
+    saveTeamsToCloud();
 
     alert("🗑️ All teams have been removed.");
   }
@@ -720,6 +721,7 @@ window.manageTeams = function() {
 
     displayTeams();
     displayTable();
+    saveTeamsToCloud();
 
     alert("✅ Team updated successfully!");
 
@@ -742,6 +744,7 @@ window.manageTeams = function() {
     displayTeams();
     displayTable();
     displayfixtures();
+    saveTeamsToCloud();
 
     alert(
       "🗑️ Team removed!\n\n" +
