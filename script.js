@@ -27,8 +27,18 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
-  const teamExists = teams.some(function (team) {
-  return team.teamName.toLowerCase() === teamName.toLowerCase();
+  const cleanTeamName = teamName
+  .toLowerCase()
+  .replace(/\s+/g, " ")
+  .trim();
+
+const teamExists = teams.some(function (team) {
+  const existingName = team.teamName
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return existingName === cleanTeamName;
 });
 
 if (teamExists) {
