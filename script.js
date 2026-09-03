@@ -132,7 +132,7 @@ function adminLogin() {
         <br><br>
 
         <button onclick="generateFixtures()">
-          📅 Generate Fixtures
+          📅 Generate / Regenerate Fixtures
         </button>
 
         <button onclick="startLeague()">
