@@ -736,7 +736,7 @@ window.manageTeams = function() {
   }
 }
 
-setTimeout(loadTeamsFromCloud, 1000);
+window.addEventListener("load", loadTeamsFromCloud);
 console.log("🔥 Cloud loading started");
 window.showRegister = showRegister;
 window.adminLogin = adminLogin;
