@@ -384,3 +384,81 @@ function enterFixtureResult(index) {
 
   alert("✅ Match result saved!");
 }
+
+function generateFixtures() {
+  if (leagueStarted) {
+    alert("🔒 The season has already started.");
+    return;
+  }
+
+  if (teams.length < 2) {
+    alert("❌ You need at least 2 teams.");
+    return;
+  }
+
+  const legFormat =
+    Number(document.getElementById("legFormat").value);
+
+  fixtures.length = 0;
+
+  let teamNames = teams.map(function (team) {
+    return team.teamName;
+  });
+
+  if (teamNames.length % 2 !== 0) {
+    teamNames.push("BYE");
+  }
+
+  const totalTeams = teamNames.length;
+  const rounds = totalTeams - 1;
+  const matchesPerRound = totalTeams / 2;
+
+  for (let round = 0; round < rounds; round++) {
+
+    for (let i = 0; i < matchesPerRound; i++) {
+
+      const home = teamNames[i];
+      const away =
+        teamNames[totalTeams - 1 - i];
+
+      if (home !== "BYE" && away !== "BYE") {
+        fixtures.push({
+          day: round + 1,
+          home: home,
+          away: away,
+          completed: false
+        });
+      }
+    }
+
+    teamNames.splice(
+      1,
+      0,
+      teamNames.pop()
+    );
+  }
+
+  if (legFormat === 2) {
+
+    const firstLeg = [...fixtures];
+
+    firstLeg.forEach(function (fixture) {
+
+      fixtures.push({
+        day: fixture.day + rounds,
+        home: fixture.away,
+        away: fixture.home,
+        completed: false
+      });
+
+    });
+  }
+
+  displayFixtures();
+
+  alert(
+    "✅ Fixtures generated!\n\n" +
+    fixtures.length +
+    " matches created."
+  );
+}
