@@ -736,4 +736,4 @@ window.manageTeams = function() {
   }
 }
 
-loadTeamsFromCloud();
+setTimeout(loadTeamsFromCloud, 1000);
