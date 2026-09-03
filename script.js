@@ -183,24 +183,51 @@ function displayFixtures() {
 
   fixtureList.innerHTML = "";
 
+  let currentDay = 0;
+
   fixtures.forEach(function (fixture, index) {
+
+    if (fixture.day !== currentDay) {
+      currentDay = fixture.day;
+
+      fixtureList.innerHTML += `
+        <h3 class="match-day">
+          📅 Day ${fixture.day}
+        </h3>
+      `;
+    }
+
     const match = document.createElement("div");
 
     match.className = "fixture";
 
-    match.innerHTML = `
-      <span class="time">${fixture.time}</span>
-      <span class="teams">
-        ${fixture.home} 🆚 ${fixture.away}
-      </span>
-      <button onclick="enterFixtureResult(${index})">
-        🏆 Enter Result
-      </button>
-    `;
+    if (fixture.completed) {
+      match.innerHTML = `
+        <span class="teams">
+          ${fixture.home} 🆚 ${fixture.away}
+        </span>
+
+        <strong>
+          ${fixture.homeScore} - ${fixture.awayScore}
+        </strong>
+
+        <span>✅ Completed</span>
+      `;
+    } else {
+      match.innerHTML = `
+        <span class="teams">
+          ${fixture.home} 🆚 ${fixture.away}
+        </span>
+
+        <button onclick="enterFixtureResult(${index})">
+          🏆 Enter Result
+        </button>
+      `;
+    }
 
     fixtureList.appendChild(match);
   });
-}
+            }
 
 function clearTeams() {
   if (confirm("Are you sure you want to clear all teams?")) {
