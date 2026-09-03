@@ -397,6 +397,7 @@ function startLeague() {
   leagueStarted = true;
   seasonStartDate = new Date();
   displayfixtures();
+  saveTeamsToCloud();
 
   alert(
     "🏆 LEAGUE STARTED!\n\n🔒 Registration is now CLOSED."
