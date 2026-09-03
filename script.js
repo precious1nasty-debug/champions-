@@ -112,6 +112,26 @@ function adminLogin() {
       <h2>🔐 Admin Dashboard</h2>
 
       <p>Welcome, Admin!</p>
+      <div class="season-setup">
+  <h3>⚙️ Season Setup</h3>
+
+  <p>Registered Teams: <strong>${teams.length}</strong></p>
+
+  <label>
+    Match Format:
+  </label>
+
+  <select id="legFormat">
+    <option value="1">1 Leg</option>
+    <option value="2">2 Legs</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="generateFixtures()">
+    📅 Generate Fixtures
+  </button>
+</div>
 
       <button onclick="addFixture()">
         📅 Add Fixture
