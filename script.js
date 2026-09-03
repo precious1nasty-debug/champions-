@@ -61,8 +61,15 @@ async function loadTeamsFromCloud() {
 
       teams.push(...(data.teams || []));
 
-      displayTeams();
-      displayTable();
+fixtures.length = 0;
+fixtures.push(...(data.fixtures || []));
+
+leagueStarted = data.leagueStarted || false;
+seasonStartDate = data.seasonStartDate || null;
+
+displayTeams();
+displayFixtures();
+displayTable();
 
       console.log("✅ Teams loaded from cloud.");
     }
