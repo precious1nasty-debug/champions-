@@ -118,6 +118,9 @@ function adminLogin() {
         <h3>⚙️ Season Setup</h3>
 
         <p>Registered Teams: <strong>${teams.length}</strong></p>
+        <button onclick="manageTeams()">
+  👥 Manage Teams
+</button>
 
         <label>Match Format:</label>
 
