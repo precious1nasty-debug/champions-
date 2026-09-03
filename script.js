@@ -353,6 +353,11 @@ function addResult() {
 function enterFixtureResult(index) {
   const fixture = fixtures[index];
 
+  if (fixture.completed) {
+    alert("⚠️ This match result has already been entered.");
+    return;
+  }
+
   const homeScore = Number(
     prompt(fixture.home + " score:")
   );
