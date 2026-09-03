@@ -727,7 +727,7 @@ window.manageTeams = function() {
 
     displayTeams();
     displayTable();
-    displayFixtures();
+    displayfixtures();
 
     alert(
       "🗑️ Team removed!\n\n" +
