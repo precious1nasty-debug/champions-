@@ -520,7 +520,7 @@ function generateFixtures() {
   );
 }
 
-function manageTeams() {
+window.manageTeams = function() {
   if (leagueStarted) {
     alert("🔒 The league has already started. Teams cannot be edited.");
     return;
