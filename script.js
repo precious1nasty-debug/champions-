@@ -77,11 +77,29 @@ function displayTable() {
 
   table.innerHTML = "";
 
-  teams.sort(function (a, b) {
-  return b.points - a.points;
-});
+  const sortedTeams = [...teams].sort(function (a, b) {
+    const aGD =
+      (a.goalsFor || 0) - (a.goalsAgainst || 0);
 
-teams.forEach(function (team, index) {
+    const bGD =
+      (b.goalsFor || 0) - (b.goalsAgainst || 0);
+
+    if (b.points !== a.points) {
+      return b.points - a.points;
+    }
+
+    if (bGD !== aGD) {
+      return bGD - aGD;
+    }
+
+    return (b.goalsFor || 0) - (a.goalsFor || 0);
+  });
+
+  sortedTeams.forEach(function (team, index) {
+    const gf = team.goalsFor || 0;
+    const ga = team.goalsAgainst || 0;
+    const gd = gf - ga;
+
     table.innerHTML += `
       <tr>
         <td>${index + 1}</td>
@@ -90,6 +108,9 @@ teams.forEach(function (team, index) {
         <td>${team.wins}</td>
         <td>${team.draws}</td>
         <td>${team.losses}</td>
+        <td>${gf}</td>
+        <td>${ga}</td>
+        <td>${gd}</td>
         <td>${team.points}</td>
       </tr>
     `;
