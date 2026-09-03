@@ -118,7 +118,7 @@ function adminLogin() {
         <h3>⚙️ Season Setup</h3>
 
         <p>Registered Teams: <strong>${teams.length}</strong></p>
-        <button onclick="manageTeams()">
+        <button onclick="window.manageTeams()">
   👥 Manage Teams
 </button>
 
