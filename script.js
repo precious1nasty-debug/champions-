@@ -27,6 +27,16 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
+  const teamExists = teams.some(function (team) {
+  return team.teamName.toLowerCase() === teamName.toLowerCase();
+});
+
+if (teamExists) {
+  registrationMessage.textContent =
+    "⚠️ This team name is already registered. Please choose another name.";
+  return;
+}
+
   teams.push({
     teamName: teamName,
     playerName: playerName,
