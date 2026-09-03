@@ -10,6 +10,17 @@ const teamList = document.getElementById("teamList");
 const registrationMessage =
   document.getElementById("registrationMessage");
 
+async function saveTeamsToCloud() {
+  const db = window.db;
+
+  if (!db) {
+    console.error("Firebase database not connected.");
+    return;
+  }
+
+  console.log("Teams ready to save to Firebase.");
+}
+
 form.addEventListener("submit", function (e) {
   if (leagueStarted === true) {
   registrationMessage.textContent =
