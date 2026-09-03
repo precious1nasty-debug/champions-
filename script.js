@@ -280,6 +280,8 @@ function startLeague() {
   }
 
   leagueStarted = true;
+  seasonStartDate = new Date();
+  displayfixtures();
 
   alert(
     "🏆 LEAGUE STARTED!\n\n🔒 Registration is now CLOSED."
